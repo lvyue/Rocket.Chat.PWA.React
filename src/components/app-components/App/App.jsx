@@ -31,7 +31,7 @@ class App extends Component {
 			<Layout className="mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header app">
 				<Drawer />
 				<Header>
-					<Title>{this.props.location.state ? ("@" + this.props.location.state.name) : ""}</Title>
+					<Title>{this.props.location.state ? (this.props.location.state.fname) : ""}</Title>
 				</Header>
 				<Content className="app-content mdl-color--white">
 					<Switch>

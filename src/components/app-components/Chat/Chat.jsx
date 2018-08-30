@@ -13,6 +13,7 @@ class Chat extends Component {
 		};
 	}
 	componentWillReceiveProps(nextProps){
+		console.log(nextProps);
 		this.setState({
 			...nextProps.location.state // Room Info in State
 		});
@@ -51,7 +52,7 @@ class Chat extends Component {
 						{JSON.stringify(this.state.lastestMessages)}
 					</Message>
 				</div>
-				<ChatInput />	
+				<ChatInput rid={this.state.rid}/>	
 			</div>
 		);
 	}

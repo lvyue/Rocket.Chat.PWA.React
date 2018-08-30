@@ -7,13 +7,14 @@ import epics from "./epics/combinedEpics";
 import reducers from "./reducers/combinedReducers";
 
 
-const URL = "wss://demo.rocket.chat/websocket";
+const URL = "ws://localhost:3000/websocket";
 let realtimeAPI = new RealTimeAPI(URL);
 
 realtimeAPI.onError(err => store.dispatch({ type: "ADD_ERROR", payload: { reason: "Error" } }));
 realtimeAPI.onMessage(msg => {
 	if (typeof msg.type === "string" && msg.type === "error")
 		store.dispatch({ type: "ADD_ERROR", payload: { reason: "Error Connecting to Server" } });
+	console.log(msg);
 });
 realtimeAPI.onCompletion(() => store.dispatch({ type: "ADD_ERROR", payload: { reason: "Not Connected to Server" } }));
 
